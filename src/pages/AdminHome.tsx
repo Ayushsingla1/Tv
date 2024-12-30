@@ -77,7 +77,7 @@ const AdminHome = () => {
                 MORE
               </button>
             </div>
-            <div className="flex w-full gap-5 mt-5">
+            <div className="grid grid-cols-5 w-full gap-5 mt-5">
               {
                 allPosters?.map((video: video | any, index: number) => {
                   return (

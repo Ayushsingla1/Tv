@@ -3,12 +3,10 @@ import MovieCard from "@/components/MovieCard";
 import Navbar from "@/components/Navbar";
 import image from "../assets/Group 1.png";
 // import { ABI, contractAddress } from "@/utils/contractDetails";
-import { useAccount } from "wagmi";
 import "../utils/loader.css"
 import { contractAbi, contractAddress } from "@/utils/NeoXContractDetails";
 import { useEffect, useState } from "react";
-import { useEthersSigner } from "@/utils/providerChange";
-import { Contract } from "ethers";
+import { Contract, ethers } from "ethers";
 
 const LandingPage = () => {
 
@@ -24,16 +22,14 @@ const LandingPage = () => {
 
   const [allPosters, setAllPosters] = useState<any>()
 
-  const connectedAcc = useAccount()
-  
-  const signer = useEthersSigner({chainId: connectedAcc.chainId})
+  const provider = new ethers.BrowserProvider(window.ethereum)
 
   useEffect(() => {
-    const contractSigned = new Contract(contractAddress, contractAbi, signer);
-    if(contractSigned && signer){
+    const contractSigned = new Contract(contractAddress, contractAbi, provider);
+    if(contractSigned){
       contractSigned.getAllPosters().then((posters) => {setAllPosters(posters); console.log(posters)})
     }
-  }, [signer])
+  }, [provider])
 
   // console.log(data);
 
@@ -80,7 +76,7 @@ const LandingPage = () => {
                 MORE
               </button>
             </div>
-            <div className="flex w-full gap-5 mt-5">
+            <div className="gird grid-cols-5 w-full gap-5 mt-5">
               {
                 allPosters?.map((video: any, index:any) => {
                   return (

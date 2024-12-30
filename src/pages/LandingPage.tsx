@@ -2,13 +2,11 @@ import Footer from "@/components/Footer";
 import MovieCard from "@/components/MovieCard";
 import Navbar from "@/components/Navbar";
 import image from "../assets/Group 1.png";
-import { useAccount } from "wagmi";
 // import { ABI, contractAddress } from "@/utils/contractDetails"
 import "../utils/loader.css"
 import { contractAbi, contractAddress } from "@/utils/NeoXContractDetails";
-import { useEthersSigner } from "@/utils/providerChange";
 import { useEffect, useState } from "react";
-import { Contract } from "ethers";
+import { Contract, ethers } from "ethers";
 import Chatbox from "@/components/Chatbox";
 
 const LandingPage = () => {
@@ -18,16 +16,14 @@ const LandingPage = () => {
 
   const [allPosters, setAllPosters] = useState<any>()
 
-  const connectedAcc = useAccount()
-  
-  const signer = useEthersSigner({chainId: connectedAcc.chainId})
+  const provider = new ethers.BrowserProvider(window.ethereum)
 
   useEffect(() => {
-    const contractSigned = new Contract(contractAddress, contractAbi, signer);
-    if(contractSigned && signer){
+    const contractSigned = new Contract(contractAddress, contractAbi, provider);
+    if(contractSigned){
       contractSigned.getAllPosters().then((posters) => {setAllPosters(posters); console.log(posters)})
     }
-  }, [signer])
+  }, [provider])
   
     return (
       <div className="w-full flex flex-col">
