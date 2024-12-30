@@ -32,12 +32,11 @@ const MovieCheckout: React.FC<MovieCheckoutProps> = ({
   const handleBuy = async (e: any) => {
     e.preventDefault();
     const res = await writeContract({
-      // const {data: res, isPending: txPending} = await writeContract({
       abi: contractAbi,
       address: contractAddress,
       functionName: "purchaseMovie",
       args: [id],
-      value: 40000n,
+      value: 40000000000000000n,
     });
     console.log("this is something");
     console.log(res);

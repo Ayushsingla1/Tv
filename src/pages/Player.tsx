@@ -4,7 +4,6 @@ import MovieInfo from "../components/MovieInfo";
 import { video } from "@/DummyData/videosData";
 import MovieCard from "@/components/MovieCard";
 import { useAccount, useReadContracts } from "wagmi";
-// import { ABI, contractAddress } from "@/utils/contractDetails";
 import { contractAddress, contractAbi } from "@/utils/NeoXContractDetails";
 import * as cryptojs from 'crypto-js';
 import { useState, useEffect } from "react";
@@ -99,7 +98,6 @@ const Player = () => {
   useEffect(() => {
 
     if (!isPending && !decryptedVideoUrl && data && (data as any[])[0]?.result?.ipfsHash) {
-      console.log("user movies is : ", data[3])
       const ipfsHash = (data as any[])[0].result.ipfsHash;
 
       decryptAndFetchFile(ipfsHash, password);

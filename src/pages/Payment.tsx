@@ -1,8 +1,7 @@
 import MovieCheckout from "../components/MovieCheckoutCard";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useAccount, useReadContract } from "wagmi";
-// import { contractAddress, ABI } from "@/utils/contractDetails";
+import { useReadContract } from "wagmi";
 import { useParams } from "react-router-dom";
 import "../utils/loader.css"
 import { contractAbi, contractAddress } from "@/utils/NeoXContractDetails";
@@ -17,9 +16,8 @@ interface posterData {
 const Payment = () => {
 
   const { id } = useParams();
-  const { address } = useAccount();
+  // const { address } = useAccount();
 
-  console.log(address)
 
   const { data, isPending }: { data: posterData[] | undefined, isPending: boolean | undefined, isError: any } = useReadContract({
     abi: contractAbi,
@@ -28,7 +26,6 @@ const Payment = () => {
     args: []
   })
 
-  console.log(data)
 
   if (isPending) {
     return <div className="flex w-screen h-screen justify-center items-center">

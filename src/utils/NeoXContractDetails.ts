@@ -1,8 +1,4 @@
-// export const contractAddress = "0xD04fF56D310613B7544Bd1Cb1Cb195168e1E6645"
-// export const contractAddress = "0x6b8cf56008c4Fc38B9c27c21bb9762190c21177b";
-// export const contractAddress = "0x92d2EeA40BefbC29dd11aAdAa7574e482Bc1Db99";  // shanghai vm
-export const contractAddress = "0x6ed8fB309b832496a67DF3Cc5898a2de4d052eAb"; //latest
-// export const contractAddress = "0xb74aa189958ce990d982bd97a79a4b0c7a781982"
+export const contractAddress = "0x6ed8fB309b832496a67DF3Cc5898a2de4d052eAb";
 export const contractAbi = [
 	{
 		"inputs": [

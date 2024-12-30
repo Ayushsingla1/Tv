@@ -2,7 +2,6 @@ import Footer from "@/components/Footer";
 import MovieCard from "@/components/MovieCard";
 import Navbar from "@/components/Navbar";
 import image from "../assets/Group 1.png";
-// import { ABI, contractAddress } from "@/utils/contractDetails"
 import "../utils/loader.css"
 import { contractAbi, contractAddress } from "@/utils/NeoXContractDetails";
 import { useEffect, useState } from "react";
@@ -10,9 +9,6 @@ import { Contract, ethers } from "ethers";
 import Chatbox from "@/components/Chatbox";
 
 const LandingPage = () => {
-  // console.log(ABI);
-  // console.log(contractAddress);
-
 
   const [allPosters, setAllPosters] = useState<any>()
 

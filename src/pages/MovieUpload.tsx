@@ -3,7 +3,6 @@ import { useState } from "react"
 import FileUploadField from "./FileUploadField";
 import axios from "axios";
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
-// import { ABI, contractAddress } from "@/utils/contractDetails";
 import * as cryptojs from 'crypto-js';
 import { LoaderCircle, CheckCircle2, XCircle } from 'lucide-react';
 import { contractAbi, contractAddress } from "@/utils/NeoXContractDetails";
@@ -230,7 +229,6 @@ const MovieUpload = () => {
         }
     }
 
-    // Render loading, error, or success states
     if (isError) return (
         <div className="flex flex-col items-center justify-center h-screen text-red-500">
             <XCircle className="w-16 h-16 mb-4" />

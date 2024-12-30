@@ -2,23 +2,12 @@ import Footer from "@/components/Footer";
 import MovieCard from "@/components/MovieCard";
 import Navbar from "@/components/Navbar";
 import image from "../assets/Group 1.png";
-// import { ABI, contractAddress } from "@/utils/contractDetails";
 import "../utils/loader.css"
 import { contractAbi, contractAddress } from "@/utils/NeoXContractDetails";
 import { useEffect, useState } from "react";
 import { Contract, ethers } from "ethers";
 
 const LandingPage = () => {
-
-
-  // const { data, isPending, error }: { data: any[] | undefined, isPending: any, error: any } = useReadContract({
-  //   // abi: ABI,
-  //   // address: contractAddress,
-  //   abi: contractAbi,
-  //   address: contractAddress,
-  //   functionName: "getAllPosters",
-  //   args: [],
-  // })
 
   const [allPosters, setAllPosters] = useState<any>()
 
@@ -31,18 +20,6 @@ const LandingPage = () => {
     }
   }, [provider])
 
-  // console.log(data);
-
-  // if (isPending) {
-  //   return <div className="flex w-screen h-screen justify-center items-center">
-  //     <div className="loader"></div>
-  //   </div>
-  // }
-  // if (error) {
-  //   return <div>{error}...</div>
-  // }
-
-  // else {
     return (
       <div className="w-full flex flex-col">
         <Navbar />

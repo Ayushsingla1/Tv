@@ -5,13 +5,11 @@ import ReactMarkdown from 'react-markdown';
 import { ThemeProvider } from 'styled-components';
 import image2 from '../assets/chatbot.png';
 
-// Define interfaces for the chat history
 interface ChatMessage {
   role: 'user' | 'assistant';
   content: string;
 }
 
-// Define interfaces for props and state
 interface DBPediaProps {
   steps: {
     search: {

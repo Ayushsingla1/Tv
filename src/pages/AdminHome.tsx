@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import image from "../assets/Group 1.png";
 import { useAccount } from "wagmi";
 import { video } from "@/DummyData/videosData";
-// import { ABI, contractAddress } from "@/utils/contractDetails";
 import { useNavigate } from "react-router-dom";
 import "../utils/loader.css"
 import { useEthersSigner } from "@/utils/providerChange";
@@ -12,13 +11,6 @@ import { useEffect, useState } from "react";
 import { Contract } from "ethers";
 import { contractAbi, contractAddress } from "@/utils/NeoXContractDetails";
 
-// interface posterData {
-//   movieId: number,
-//   name: string;
-//   description: string;
-//   ipfsHash: string;
-//   price: number;
-// }
 
 const AdminHome = () => {
 
@@ -36,19 +28,7 @@ const AdminHome = () => {
       contractSigned.getAllPosters().then((posters) => {setAllPosters(posters); console.log(posters)})
     }
   }, [signer])
-  // const { data, isPending }: { data: posterData[] | undefined, isPending: boolean | undefined } = useReadContract({
-  //   abi: ABI,
-  //   address: contractAddress,
-  //   functionName: "getAllPosters",
-  //   args: []
-  // })
 
-  // if (isPending) {
-  //   return <div className="flex w-screen h-screen justify-center items-center">
-  //     <div className="loader"></div>
-  //   </div>
-  // }
-  // else {
     return (
       <div className="w-full flex flex-col">
         <Navbar />

@@ -25,10 +25,8 @@ const FileUploadField = ({ label, onChange, preview, onRemove, accept, type }: a
                     </div>
                 </div>
 
-                {/* Preview Area */}
                 {preview && (
                     <div className="mt-3 relative group">
-                        {/* Remove Button */}
                         <button
                             onClick={onRemove}
                             className="absolute -top-2 -right-2 bg-red-500 rounded-full p-1 
@@ -38,7 +36,6 @@ const FileUploadField = ({ label, onChange, preview, onRemove, accept, type }: a
                             <X className="w-4 h-4 text-white" />
                         </button>
 
-                        {/* Preview Content */}
                         {type === 'image' ? (
                             <div className="relative aspect-video w-full bg-black rounded-lg overflow-hidden">
                                 <img
@@ -56,8 +53,7 @@ const FileUploadField = ({ label, onChange, preview, onRemove, accept, type }: a
                                 />
                             </div>
                         )}
-
-                        {/* File Info Overlay */}
+                        
                         <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 
                                       group-hover:opacity-100 transition-opacity rounded-lg
                                       flex items-center justify-center">
