@@ -10,6 +10,7 @@ import LandingPage from "./pages/LandingPage";
 import MovieUpload from "./pages/MovieUpload";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import UserMovies from "./pages/UserMovies";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/payment/:id" element={<Payment />} />
         <Route path="/AdminHome" element={<AdminHome />} />
         <Route path="/addmovie" element={<MovieUpload />} />
+        <Route path="/userMovies" element={<UserMovies/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

@@ -4,22 +4,27 @@ import Navbar from "@/components/Navbar";
 import image from "../assets/Group 1.png";
 import "../utils/loader.css"
 import { contractAbi, contractAddress } from "@/utils/NeoXContractDetails";
-import { useEffect, useState } from "react";
-import { Contract, ethers } from "ethers";
+import { useReadContract } from "wagmi";
+import "../utils/trouble.css"
+import "../utils/loader.css"
 
 const LandingPage = () => {
 
-  const [allPosters, setAllPosters] = useState<any>()
+  const {isPending , isError , data } = useReadContract({
+    abi : contractAbi,
+    address : contractAddress,
+    functionName : "getAllPosters",
+    args : []
+  })
 
-  const provider = new ethers.BrowserProvider(window.ethereum)
+  if(isPending){
+    return <div className="loader"></div>
+  }
+  if(isError) {
+    return <div className="trouble"></div>
+  }
 
-  useEffect(() => {
-    const contractSigned = new Contract(contractAddress, contractAbi, provider);
-    if(contractSigned){
-      contractSigned.getAllPosters().then((posters) => {setAllPosters(posters); console.log(posters)})
-    }
-  }, [provider])
-
+  if(!isPending){
     return (
       <div className="w-full flex flex-col">
         <Navbar />
@@ -55,7 +60,7 @@ const LandingPage = () => {
             </div>
             <div className="gird grid-cols-5 w-full gap-5 mt-5">
               {
-                allPosters?.map((video: any, index:any) => {
+                (data as any[])?.map((video: any, index:any) => {
                   return (
                     <MovieCard key={index} video={video} />
                   )
@@ -67,6 +72,7 @@ const LandingPage = () => {
         <Footer />
       </div>
     );
+  }
   // }
 }
 
