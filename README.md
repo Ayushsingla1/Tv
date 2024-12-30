@@ -1,50 +1,59 @@
-# React + TypeScript + Vite
+# Web3TV  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Web3TV is a cutting-edge decentralized platform for streaming and managing movies. It leverages blockchain technology, decentralized storage, and smart AI tools to create a secure and user-friendly environment for both content creators and viewers.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features  
 
-## Expanding the ESLint configuration
+### **Admin Side (Movie Uploaders):**  
+- **Encrypted Uploads:** Movies are encrypted using a secure password to prevent unauthorized access.  
+- **Decentralized Storage:** Encrypted files are uploaded to IPFS, ensuring safety and accessibility.  
+- **Blockchain Integration:** Movie details are permanently recorded on a blockchain for transparency and trust.  
+- **Future Enhancements:** Tools to verify content authenticity and uploader identity are in progress.  
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### **User Side (Movie Watchers):**  
+- **Purchase and Own Movies:** Buy movies and receive a unique NFT as proof of ownership.  
+- **Secure Access:** Movies are decrypted and accessible only to users holding the corresponding NFT.  
+- **Anti-Piracy Measures:** Even if an NFT is transferred, only the original buyer retains access rights.  
+- **Interactive Chatbot:** A decentralized chatbot powered by GaiaNet provides movie details, cast information, reviews, and more.  
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Technology Stack  
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **Blockchain:** Ensures secure, transparent, and tamper-proof transactions.  
+- **IPFS:** Decentralized storage for movie files, ensuring data integrity.  
+- **GaiaNet:** Powers the intelligent chatbot, gathering information from multiple sources to enhance user experience.
+  
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Why Web3TV?  
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. **Decentralization:** Movies and transactions are securely managed without relying on centralized servers.  
+2. **Ownership:** NFTs ensure that buyers genuinely own their purchased movies.  
+3. **Enhanced Security:** Encryption and blockchain integration prevent unauthorized access and piracy.  
+4. **Interactive Experience:** The GaiaNet-powered chatbot makes exploring movie information easy and engaging.  
+
+---
+
+## Future Roadmap  
+
+- **Content Verification:** Adding tools to ensure movies are authentic and uploaded by verified publishers.  
+- **Community Features:** Reviews, upvotes, and personalized recommendations.  
+- **Improved Chatbot:** Expanding the chatbot’s capabilities for deeper interactions.  
+
+---
+
+## How It Works  
+
+### Admins  
+1. Encrypt the movie with a secure password.  
+2. Upload the file to IPFS, along with its details.  
+3. Confirm the transaction on the blockchain to store movie metadata.  
+
+### Users  
+1. Browse and select a movie.  
+2. Purchase the movie and receive an NFT.  
+3. Decrypt and watch the movie securely using the NFT.  
+4. Use the chatbot for more information about movies and recommendations.  
