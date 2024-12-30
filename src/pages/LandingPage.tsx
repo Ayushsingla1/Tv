@@ -9,6 +9,7 @@ import { contractAbi, contractAddress } from "@/utils/NeoXContractDetails";
 import { useEthersSigner } from "@/utils/providerChange";
 import { useEffect, useState } from "react";
 import { Contract } from "ethers";
+import Chatbox from "@/components/Chatbox";
 
 const LandingPage = () => {
   // console.log(ABI);
@@ -27,26 +28,7 @@ const LandingPage = () => {
       contractSigned.getAllPosters().then((posters) => {setAllPosters(posters); console.log(posters)})
     }
   }, [signer])
-
-  // console.log("hello")
-  // const { data, isPending, error }: { data: any[] | undefined, isPending: any, error: any } = useReadContract({
-  //   abi: contractAbi,
-  //   address: contractAddress,
-  //   functionName: "getAllPosters",
-  //   args: [],
-  // })
-
-  // console.log(data);
-
-  // if (isPending) {
-  //   return <div className="flex w-screen h-screen justify-center items-center">
-  //     <div className="loader"></div>
-  //   </div>
-  // }
-  // if (error) {
-  //   return <div>{error}...</div>
-  // }
-  // else {
+  
     return (
       <div className="w-full flex flex-col">
         <Navbar />
@@ -86,6 +68,9 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
+        <div className="mb-10">
+        <Chatbox/>
+      </div>
         <Footer />
       </div>
     );
