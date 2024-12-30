@@ -18,10 +18,14 @@ const LandingPage = () => {
   })
 
   if(isPending){
-    return <div className="loader"></div>
+    return <div className="w-screen h-screen flex justify-center items-center">
+      <div className="loader"></div>
+    </div>
   }
   if(isError) {
-    return <div className="trouble"></div>
+    return <div className="w-screen h-screen flex justify-center items-center">
+      <div className="trouble"></div>
+    </div>
   }
 
   if(!isPending){
